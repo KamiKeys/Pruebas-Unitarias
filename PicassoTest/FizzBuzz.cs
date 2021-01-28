@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace PicassoTest
 {
     public class FizzBuzz
@@ -12,10 +14,14 @@ namespace PicassoTest
         /// </summary>
         /// <param name="number">the integer to get output for</param>
         /// <returns>a string with the proper output as described in the summary</returns>
-        public static string GetOutput(int number)
+        public static string GetOutput(double? number)
         {
             string output;
 
+            if (number == null)
+            {
+                throw new ArgumentNullException();
+            }
             if ((number % 3 == 0) && (number % 5 == 0))
             {
                 output = "FizzBuzz";
