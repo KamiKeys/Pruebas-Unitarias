@@ -61,6 +61,7 @@ namespace PicassoTest.Tests
             //Arrange
             var reservation = new Reservation { };
 
+            //Assert
             Assert.Throws<ArgumentNullException>(() => reservation.CanBeCancelledBy(null));
         }
     }

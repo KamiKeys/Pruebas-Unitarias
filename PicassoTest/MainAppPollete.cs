@@ -9,7 +9,6 @@ namespace PicassoTest
 
         public static void Main(string[] args)
         {
-
         }
     }
 }
