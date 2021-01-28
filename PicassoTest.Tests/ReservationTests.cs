@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 
 namespace PicassoTest.Tests
 {
@@ -29,11 +30,11 @@ namespace PicassoTest.Tests
         public void CanBeCancelledBy_UserIsMadeBy_ReturnsTrue()
         {
             //Arrange
-            var paco = new User();
-            var reservation = new Reservation {  MadeBy = paco };
+            var persona = new User();
+            var reservation = new Reservation { MadeBy = persona };
 
             //Act
-            var result = reservation.CanBeCancelledBy(paco);
+            var result = reservation.CanBeCancelledBy(persona);
 
             //Assert
             Assert.That(result, Is.True);
@@ -43,12 +44,12 @@ namespace PicassoTest.Tests
         public void CanBeCancelledBy_UserIsNotMadeBy_ReturnsTrue()
         {
             //Arrange
-            var paco = new User();
-            var pepe = new User();
-            var reservation = new Reservation { MadeBy = paco };
+            var persona = new User();
+            var persona2 = new User();
+            var reservation = new Reservation { MadeBy = persona };
 
             //Act
-            var result = reservation.CanBeCancelledBy(pepe);
+            var result = reservation.CanBeCancelledBy(persona2);
 
             //Assert
             Assert.That(result, Is.False);
@@ -58,15 +59,9 @@ namespace PicassoTest.Tests
         public void CanBeCancelledBy_UserIsNull_ThrowsNullException()
         {
             //Arrange
-            var paco = new User();
-            var pepe = new User();
-            var reservation = new Reservation { MadeBy = paco };
+            var reservation = new Reservation { };
 
-            //Act
-            var result = reservation.CanBeCancelledBy(pepe);
-
-            //Assert
-            Assert.That(result, Is.False);
+            Assert.Throws<ArgumentNullException>(() => reservation.CanBeCancelledBy(null));
         }
     }
 }

@@ -9,14 +9,14 @@ namespace PicassoTest
         public User MadeBy { get; set; }
         public bool CanBeCancelledBy(User user)
         {
-            if(user.IsAdmin)
-            {
+            if (user == null)
+                throw new ArgumentNullException();
+
+            if (user.IsAdmin)
                 return true;
-            }
+
             if(user == MadeBy)
-            {
                 return true;
-            }
 
             return false;
         }
