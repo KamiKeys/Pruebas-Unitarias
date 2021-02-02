@@ -10,17 +10,6 @@ namespace PicassoTest.Tests
         {
         }
 
-        //TODO: Preguntar si es necesario ponerle '?' para hacer esta prueba.
-        [Test]
-        public void Number_IsNull_ThrowsNullException()
-        {
-            //Assert
-            Assert.Throws<ArgumentNullException>(() => FizzBuzz.GetOutput(null));
-        }
-
-        //TODO: Comprobar cuando se le pase algo diferente a un número.
-        //TODO: Preguntar si es necesario hacer prueba para que acepte decimales.
-
         [Test]
         public void Number_IsDivisibleBy3_ReturnsFizz()
         {
