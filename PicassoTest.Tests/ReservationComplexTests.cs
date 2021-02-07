@@ -106,5 +106,19 @@ namespace PicassoTest.Tests
             //Assert
             Assert.AreEqual(result, 0);
         }
+
+        [Test]
+        public void MoneyUser_IsHigherPrice_ReturnsResultOperation()
+        {
+            //Arrange
+            var persona = new UserComplex() { IsAdmin = false, Money = 50 };
+            var reservation = new ReservationComplex() { MadeBy = persona, Price = 30 };
+
+            //Act
+            var result = reservation.PayReservation(persona);
+
+            //Assert
+            Assert.AreEqual(persona.Money, 20);
+        }
     }
 }

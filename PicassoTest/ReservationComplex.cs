@@ -33,7 +33,6 @@ namespace PicassoTest
             if (user.Money >= Price)
             {
                 user.Money -= Price;
-                Console.WriteLine(user.Money);
                 return 0;
             }
 
